@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="keyboard_bg">#F5B7B1</color>
-    <color name="key_bg">#FFFFFF</color>
-    <color name="key_text">#333333</color>
+    <!-- 浅灰蓝春日青色系 - 春日清新主题 -->
+    
+    <!-- 键盘背景：浅灰蓝 -->
+    <color name="keyboard_bg">#E8EEF2</color>
+    
+    <!-- 按键背景：春日青（淡雅绿） -->
+    <color name="key_bg">#B8D4D9</color>
+    
+    <!-- 按键文字：深灰蓝 -->
+    <color name="key_text">#2C3E50</color>
+    
+    <!-- 特殊按键（shift/enter等）：浅天蓝 -->
+    <color name="key_special_bg">#A9CCE3</color>
+    
+    <!-- 按键按下效果：薄荷青 -->
+    <color name="key_pressed_bg">#7FB3D3</color>
+    
+    <!-- 强调色：春日嫩绿 -->
+    <color name="accent_color">#82C9BB</color>
+    
+    <!-- 分隔线：淡灰蓝 -->
+    <color name="divider">#D5DBDE</color>
 </resources>
