@@ -15,12 +15,26 @@ jobs:
       
       - uses: android-actions/setup-android@v3
       
+      - name: Install SDK
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager --install "build-tools;34.0.0" "platforms;android-34"
+      
+      - name: Debug - List files
+        run: |
+          ls -la
+          ls -la gradle/wrapper/
+          cat gradle/wrapper/gradle-wrapper.properties
+      
       - name: Build Debug APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace --info
       
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: kitten-ime-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/logs/**
