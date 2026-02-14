@@ -93,14 +93,23 @@ public class KittenIME extends InputMethodService implements KeyboardView.OnKeyb
     public void onRelease(int primaryCode) {
         if (primaryCode == Keyboard.KEYCODE_SHIFT) {
             if (System.currentTimeMillis() - shiftPressTime > LONG_PRESS_THRESHOLD) {
-                // 长按：显示输入法选择器
-                showInputMethodPicker();
+                // 长按：切换猫模式
+                toggleCatMode();
             } else {
                 // 短按：切换大小写
                 caps = !caps;
                 keyboard.setShifted(caps);
                 keyboardView.invalidateAllKeys();
             }
+        }
+    }
+    
+    private void toggleCatMode() {
+        boolean enabled = KittenTransformer.toggleCatMode();
+        if (enabled) {
+            Toast.makeText(this, "喵~ 猫模式已开启 ฅ^•ﻌ•^ฅ", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "咪~ 猫模式已关闭", Toast.LENGTH_SHORT).show();
         }
     }
 
